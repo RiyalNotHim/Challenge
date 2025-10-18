@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 Projects Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>50 Projects Challenge</h1>
+    </header>
+    
+    <div class="container">
+        <div class="tabs-container">
+            <div class="tabs-scroll">
+                <div id="tabs" class="tabs"></div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="output-section">
+                <h2>Output</h2>
+                <div id="slideshow" class="slideshow">
+                    <button id="prevBtn" class="nav-btn prev-btn">&lt;</button>
+                    <div id="slideshow-images" class="slideshow-images"></div>
+                    <button id="nextBtn" class="nav-btn next-btn">&gt;</button>
+                    <div id="slide-dots" class="slide-dots"></div>
+                </div>
+            </div>
+            
+            <div class="readme-section">
+                <h2>Project Details</h2>
+                <div id="readme-content" class="readme-content"></div>
+            </div>
+        </div>
+        
+        <div class="day-actions">
+            <a id="projectLink" href="#" target="_blank" class="action-btn link-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                View on GitHub
+            </a>
+            
+            <div class="comment-section">
+                <h3>Leave Feedback</h3>
+                <form id="commentForm">
+                    <input type="text" id="commenterName" placeholder="Your Name" required>
+                    <textarea id="commentText" placeholder="Your feedback..." rows="4" required></textarea>
+                    <button type="submit" class="action-btn submit-btn">Submit Feedback</button>
+                </form>
+                
+                <div class="feedbacks-display">
+                    <h3>Community Feedback</h3>
+                    <div id="feedbackList" class="feedback-list">
+                        <div class="no-feedback">Loading feedbacks...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
