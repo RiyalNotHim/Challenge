@@ -133,17 +133,23 @@ header h1 {
 }
 
 .content-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 30px;
-    min-height: 600px;
+    min-height: 400px;
 }
 
-.output-section,
+.output-section {
+    display: flex;
+    flex-direction: column;
+}
+
 .readme-section {
     display: flex;
     flex-direction: column;
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid #e9ecef;
 }
 
 .output-section h2,
@@ -246,6 +252,7 @@ header h1 {
     padding: 20px;
     overflow-y: auto;
     line-height: 1.6;
+    max-height: 400px;
 }
 
 .readme-content h1,
@@ -403,12 +410,16 @@ header h1 {
 }
 
 @media (max-width: 968px) {
-    .content-container {
-        grid-template-columns: 1fr;
-    }
-    
     header h1 {
         font-size: 2em;
+    }
+    
+    .readme-section {
+        padding: 20px;
+    }
+    
+    .content-container {
+        padding: 20px;
     }
     
     .day-actions {
