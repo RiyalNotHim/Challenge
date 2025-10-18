@@ -1,0 +1,4 @@
+{
+  "apps": ["git", "python", "nodejs", "docker"],
+  "paths": ["C:/example", "C:/example2/Projects", "C:/example/DevTools"]
+}

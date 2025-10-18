@@ -1,0 +1,28 @@
+HOW TO RUN
+
+1️⃣ Open a terminal inside the 'src' folder.
+2️⃣ Run the following command:
+"python setup_booster.py"
+
+3️⃣ The script will:
+Read the setup.JSON file.
+Install all listed applications using winget.
+Create all listed folders on your system.
+
+4️⃣ Once completed, you’ll see "✅ Setup complete!".
+====================================================
+
+CONFIGURATION
+
+Edit the setup.JSON file to include:
+{
+   "apps": ["git", "python", "nodejs", "vscode"],
+   "paths": ["C:/Projects", "C:/DevTools"]
+}
+
+====================================================
+NOTES
+
+• Works on Windows (with winget).
+• For Linux, replace 'winget' with 'apt' in the script.
+• Run terminal as Administrator for full permission.
