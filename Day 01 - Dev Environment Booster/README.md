@@ -74,27 +74,17 @@ python gui_setup_booster.py
 ## 🗂️ Configuration Files
 
 ### setup.JSON
-```json
-{
-  "apps": [
-    {"id": "Git.Git", "name": "git"},
-    {"id": "Microsoft.VisualStudioCode", "name": "vscode"},
-    {"id": "Docker.DockerDesktop", "name": "docker"}
-  ],
-  "paths": ["C:/Projects", "C:/DevTools"]
-}
+```
+Your editable working configuration.
+
 ```
 
 ### apps.info
-```json
-[
-  {"id": "Git.Git", "name": "git", "category": "VCS"},
-  {"id": "Python.Python.3.11", "name": "python", "category": "Runtime"},
-  {"id": "Docker.DockerDesktop", "name": "docker", "category": "DevOps"}
-]
-```
+``` 
+A catalog of popular developer apps for quick selection.
 
 ---
+
 
 ## 🧱 Built With
 
