@@ -213,13 +213,21 @@ async function initializeCommentForm() {
         e.preventDefault();
         
         const submitBtn = commentForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
         
-        const name = document.getElementById('commenterName').value;
-        const comment = document.getElementById('commentText').value;
+        const name = document.getElementById('commenterName').value.trim();
+        const comment = document.getElementById('commentText').value.trim();
         const day = currentDay;
         const projectName = projectsData[day]?.name || 'Project';
+        
+        if (!name || !comment) {
+            showNotification('Please fill in all fields', 'error');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            return;
+        }
         
         try {
             const response = await fetch('/.netlify/functions/feedback', {
@@ -242,13 +250,16 @@ async function initializeCommentForm() {
                 await loadFeedbacks(day);
                 showNotification('Feedback submitted successfully!', 'success');
             } else {
-                showNotification('Failed to submit feedback', 'error');
+                const errorMsg = result.error || 'Failed to submit feedback';
+                console.error('Server error:', result);
+                showNotification(errorMsg, 'error');
             }
         } catch (error) {
-            showNotification('Error submitting feedback', 'error');
+            console.error('Network error:', error);
+            showNotification('Network error. Please check your connection.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Feedback';
+            submitBtn.textContent = originalText;
         }
     });
 }

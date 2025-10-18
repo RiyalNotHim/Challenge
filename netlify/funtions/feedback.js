@@ -1,9 +1,27 @@
 const { MongoClient } = require('mongodb');
 
 const uri = 'mongodb+srv://csattyam:sattyam16@50projectschallenge.sy0nmkc.mongodb.net/?retryWrites=true&w=majority&appName=50ProjectsChallenge';
-const client = new MongoClient(uri);
+
+let cachedClient = null;
+
+async function connectToDatabase() {
+  if (cachedClient) {
+    return cachedClient;
+  }
+
+  const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  await client.connect();
+  cachedClient = client;
+  return client;
+}
 
 exports.handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false;
+
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -19,27 +37,39 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    await client.connect();
+    const client = await connectToDatabase();
     const database = client.db('50projectschallenge');
     const feedbacks = database.collection('feedbacks');
 
     if (event.httpMethod === 'POST') {
       const { name, comment, day, projectName } = JSON.parse(event.body);
       
+      if (!name || !comment || !day) {
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: 'Missing required fields' })
+        };
+      }
+      
       const feedback = {
         name,
         comment,
-        day,
+        day: parseInt(day),
         projectName,
         timestamp: new Date()
       };
       
-      await feedbacks.insertOne(feedback);
+      const result = await feedbacks.insertOne(feedback);
       
       return {
         statusCode: 200,
         headers,
-        body: JSON.stringify({ success: true, message: 'Feedback submitted successfully' })
+        body: JSON.stringify({ 
+          success: true, 
+          message: 'Feedback submitted successfully',
+          id: result.insertedId
+        })
       };
     }
 
@@ -66,10 +96,14 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
+    console.error('Function error:', error);
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: 'Failed to process request', details: error.message })
+      body: JSON.stringify({ 
+        error: 'Failed to process request', 
+        details: error.message 
+      })
     };
   }
 };
