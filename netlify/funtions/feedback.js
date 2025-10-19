@@ -1,6 +1,6 @@
 const { neon } = require('@neondatabase/serverless');
 
-const connectionString = 'postgresql://neondb_owner:npg_wL4NkvmciW6u@ep-wandering-lab-a13oheum-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require';
+const connectionString = 'postgresql://neondb_owner:@ep-wandering-lab-a13oheum-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require';
 
 const sql = neon(connectionString);
 
