@@ -58,7 +58,7 @@ async function loadDay(day) {
 function updateProjectLink(day, githubPath) {
     const projectLinkBtn = document.getElementById('projectLink');
     if (githubPath) {
-        projectLinkBtn.href = `https://github.com/csattyam/50projectchallenge/tree/main/${githubPath}`;
+        projectLinkBtn.href = `https://github.com/RiyalNotHim/Challenge/tree/main/${githubPath}`;
         projectLinkBtn.style.display = 'flex';
     } else {
         projectLinkBtn.style.display = 'none';
