@@ -71,21 +71,6 @@ python gui_setup_booster.py
 
 ---
 
-## 🗂️ Configuration Files
-
-### setup.JSON
-```
-Your editable working configuration.
-
-```
-
-### apps.info
-``` 
-A catalog of popular developer apps for quick selection.
-
----
-
-
 ## 🧱 Built With
 
 | Library | Purpose |
