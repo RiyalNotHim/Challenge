@@ -9,7 +9,7 @@ const projectsData = {
     name: "Day 02 - Windows Cleanup Assistant",
     readme: "Day 02 - Windows Cleanup Assistant/README.md",
     outputs: ["Day 02 - Windows Cleanup Assistant/docs/Day 2 - Output.png"],
-    githubPath: "Day%2001%20-%20Dev%20Environment%20Booster"
+    githubPath: "Day%2002%20-%20Windows%20Cleanup%20Assistant"
     }
 };
 
