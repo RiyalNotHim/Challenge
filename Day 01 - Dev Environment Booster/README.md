@@ -46,14 +46,6 @@ With just one click, you can:
 
 ---
 
-## 🖼️ GUI Preview
-
-<p align="center">
-  <img src="docs/screenshots/gui_main.png" alt="Dev Environment Booster GUI" width="700"/>
-</p>
-
----
-
 ## 🗂️ Folder Structure
 
 ```
