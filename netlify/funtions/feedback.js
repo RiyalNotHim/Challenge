@@ -1,27 +1,27 @@
-const { MongoClient } = require('mongodb');
+const { neon } = require('@neondatabase/serverless');
 
-const uri = 'mongodb+srv://csattyam:sattyam16@50projectschallenge.sy0nmkc.mongodb.net/?retryWrites=true&w=majority&appName=50ProjectsChallenge';
+const connectionString = 'postgresql://neondb_owner:npg_wL4NkvmciW6u@ep-wandering-lab-a13oheum-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require';
 
-let cachedClient = null;
+const sql = neon(connectionString);
 
-async function connectToDatabase() {
-  if (cachedClient) {
-    return cachedClient;
-  }
-
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
-  await client.connect();
-  cachedClient = client;
-  return client;
+async function initializeDatabase() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS feedbacks (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      comment TEXT NOT NULL,
+      day INTEGER NOT NULL,
+      project_name VARCHAR(255),
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+  `;
+  
+  await sql`
+    CREATE INDEX IF NOT EXISTS idx_feedbacks_day ON feedbacks(day)
+  `;
 }
 
 exports.handler = async (event, context) => {
-  context.callbackWaitsForEmptyEventLoop = false;
-
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -37,9 +37,7 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const client = await connectToDatabase();
-    const database = client.db('50projectschallenge');
-    const feedbacks = database.collection('feedbacks');
+    await initializeDatabase();
 
     if (event.httpMethod === 'POST') {
       const { name, comment, day, projectName } = JSON.parse(event.body);
@@ -52,15 +50,11 @@ exports.handler = async (event, context) => {
         };
       }
       
-      const feedback = {
-        name,
-        comment,
-        day: parseInt(day),
-        projectName,
-        timestamp: new Date()
-      };
-      
-      const result = await feedbacks.insertOne(feedback);
+      const result = await sql`
+        INSERT INTO feedbacks (name, comment, day, project_name)
+        VALUES (${name}, ${comment}, ${parseInt(day)}, ${projectName || null})
+        RETURNING id
+      `;
       
       return {
         statusCode: 200,
@@ -68,7 +62,7 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ 
           success: true, 
           message: 'Feedback submitted successfully',
-          id: result.insertedId
+          id: result[0].id
         })
       };
     }
@@ -76,16 +70,26 @@ exports.handler = async (event, context) => {
     if (event.httpMethod === 'GET') {
       const day = event.queryStringParameters?.day;
       
-      const query = day ? { day: parseInt(day) } : {};
-      const allFeedbacks = await feedbacks
-        .find(query)
-        .sort({ timestamp: -1 })
-        .toArray();
+      let feedbacks;
+      if (day) {
+        feedbacks = await sql`
+          SELECT id, name, comment, day, project_name, timestamp
+          FROM feedbacks
+          WHERE day = ${parseInt(day)}
+          ORDER BY timestamp DESC
+        `;
+      } else {
+        feedbacks = await sql`
+          SELECT id, name, comment, day, project_name, timestamp
+          FROM feedbacks
+          ORDER BY timestamp DESC
+        `;
+      }
       
       return {
         statusCode: 200,
         headers,
-        body: JSON.stringify(allFeedbacks)
+        body: JSON.stringify(feedbacks)
       };
     }
 
