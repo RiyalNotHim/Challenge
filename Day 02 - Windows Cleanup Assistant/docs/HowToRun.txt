@@ -1,0 +1,12 @@
+How to run the Windows Cleanup Assistant:
+
+1. Download and unzip the project.
+2. Open "Command Prompt" or "PowerShell" as Administrator (recommended).
+3. Change directory into the src folder:
+   cd windows_cleanup_assistant/src
+4. Run:
+   python win_cleanup_assistant.py
+
+Requirements:
+- Python 3.8+
+- Running on Windows (the script uses PowerShell commands)

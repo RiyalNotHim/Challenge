@@ -92,4 +92,7 @@ Licensed under the **MIT License** — see `LICENSE` file for details.
 ## 👨‍💻 Author
 
 **Sattyam Chavan**  
+📧 Feel free to fork, enhance, or contribute!
+⭐ If you like this project, don’t forget to star the repo on GitHub!
 
+“Small tools make a big difference — keep your system light and clean.” ✨
