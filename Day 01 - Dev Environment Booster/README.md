@@ -1,98 +1,142 @@
-# 🚀 Dev Environment Booster (GUI)
+# ⚙️ Dev Environment Booster  
+> **A Smart One-Click Developer Machine Setup Tool Built with Python**
 
-> **Day 01** of the *“50 Days • 50 Projects”* Challenge  
-> Build a one-click setup tool to install your essential development apps and create workspace folders with a clean graphical interface.
-
----
-
-## 🧩 Overview
-
-The **Dev Environment Booster** is a Python-based GUI utility that automates the process of setting up a fresh development workstation.  
-It allows you to:
-
-- 🧱 **Install multiple apps** automatically using your system’s package manager  
-- 🗂️ **Create predefined directories** (e.g., `C:/Projects`, `C:/DevTools`)  
-- 🧭 **Manage configs visually** — open, edit, and save `setup.JSON`  
-- 🔍 **Search from a built-in app catalog (`apps.info`)** and add entries with one click  
-- 🧪 **Dry-run mode** to preview actions before real installation  
-- 📜 **Live logs** for every operation  
+The **Dev Environment Booster** is an open-source automation utility that simplifies setting up a development workstation.  
+It combines intelligent package installation and directory management into a clean, **Tkinter-powered GUI** — so you can install your essential tools and organize your workspace in minutes.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Overview
 
-```
-📦 Dev Environment Booster
- ┣ 📂 docs/
- ┃ ┣ 📄 README.md
- ┃ ┗ 📄 USAGE.md
- ┣ 📂 src/
- ┃ ┣ 📄 gui_setup_booster.py
- ┃ ┣ 📄 setup.JSON
- ┃ ┗ 📄 apps.info
- ┣ 📄 HowToRun.txt
- ┗ 📄 LICENSE
-```
+Configuring a new system for development often requires repetitive manual work — installing tools, SDKs, editors, and setting up project directories.  
+This app provides a **single graphical interface** to automate that process.  
+
+With just one click, you can:
+- Install **multiple developer tools** through your system’s package manager.
+- Automatically create common **workspace directories**.
+- Save and reuse setup configurations across different machines.
+- Load a full app catalog (`apps.info`) and select tools visually.
+- View **real-time logs** of every operation inside the GUI.
 
 ---
 
-## 🧠 Key Features
+## ✨ Features
 
 | Feature | Description |
 |----------|-------------|
-| **GUI Config Manager** | Add/remove apps and paths visually |
-| **Smart Detection** | Detects package managers automatically |
-| **Pre-Check Installs** | Detects already installed packages |
-| **Catalog Search** | Browse 100+ developer tools from `apps.info` |
-| **Dry-Run Mode** | Preview all commands before running |
-| **Threaded Execution** | Keeps GUI responsive during installs |
-| **Real-Time Logging** | Logs everything in a live console |
+| 🧱 **One-Click Setup** | Install all your developer tools automatically using `winget`, `apt`, `dnf`, or `brew`. |
+| 🔍 **App Catalog** | Built-in searchable catalog (`apps.info`) of 100+ essential developer tools. |
+| ⚙️ **Config Manager** | Add, remove, and save app lists and workspace paths in `setup.JSON`. |
+| 🧪 **Dry Run Mode** | Preview installation commands before applying changes. |
+| 📂 **Directory Creator** | Automatically creates folders like `C:/Projects`, `C:/DevTools`, etc. |
+| 📜 **Live Logs** | Displays all actions in real time for better visibility and debugging. |
+| 🧭 **Smart Detection** | Detects available package manager automatically for your OS. |
+| 🪟 **Simple GUI** | Clean Tkinter-based interface with responsive layouts. |
 
 ---
 
-## ⚙️ Supported Platforms
+## 🧠 Tech Stack
 
-| OS | Package Manager |
-|----|------------------|
-| 🪟 Windows | `winget` |
-| 🐧 Linux | `apt`, `dnf`, `pacman` |
-| 🍎 macOS | `brew` |
+| Component | Technology Used |
+|------------|----------------|
+| **Frontend (GUI)** | Tkinter (Python Standard Library) |
+| **Backend / Core Logic** | Python 3.10+ |
+| **Package Management** | winget / apt / dnf / brew |
+| **Platform Support** | Windows, Linux, macOS |
 
 ---
 
-## ▶️ How to Run
+## 🖼️ GUI Preview
+
+<p align="center">
+  <img src="docs/screenshots/gui_main.png" alt="Dev Environment Booster GUI" width="700"/>
+</p>
+
+---
+
+## 🗂️ Folder Structure
+
+```
+dev_environment_booster/
+├── docs/
+│   ├── USAGE.md
+│   ├── screenshots/
+│   │   └── gui_main.png
+│
+├── src/
+│   ├── gui_setup_booster.py
+│   ├── setup.JSON
+│   └── apps.info
+│
+├── README.md
+├── HowToRun.txt
+└── LICENSE
+```
+
+---
+
+## ⚡ Installation & Usage
+
+### 1️⃣ Clone or Download
+```bash
+git clone https://github.com/yourusername/dev-environment-booster.git
+cd dev-environment-booster/src
+```
+
+### 2️⃣ Run the Application
+> 💡 *Run as Administrator (Windows) or with sudo (Linux/macOS) for full installation access.*
 
 ```bash
-cd src
 python gui_setup_booster.py
 ```
 
-> Run as Administrator on Windows or with `sudo` on Linux/macOS.
+### 3️⃣ Configure Your Setup
+- Load or create a new `setup.JSON`
+- Add apps manually or from the **Catalog Panel**
+- Add desired workspace directories
+- Enable **Dry Run** if you just want to preview
+- Click **Install Apps** and **Create Directories**
 
 ---
 
-## 🧱 Built With
+## 📘 Documentation
 
-| Library | Purpose |
-|----------|----------|
-| `tkinter`, `ttk` | GUI design |
-| `subprocess` | Execute installation commands |
-| `threading`, `queue` | Run tasks in background threads |
-| `json` | Handle setup and catalog data |
-| `os`, `platform`, `shutil` | Manage paths and detect OS |
+For detailed setup, configuration, and workflow:
+- See [`docs/USAGE.md`](docs/USAGE.md)
+- Learn about JSON file formats and error handling
 
 ---
 
-## 🧾 License
+## 🧩 Why JSON + GUI?
 
-Licensed under the **MIT License** — see `LICENSE` file for details.
+- Easy to export and share your environment setup.  
+- Reusable across multiple devices and teams.  
+- JSON makes automation flexible; GUI makes it accessible.
+
+---
+
+## 🧱 Future Enhancements
+
+- 🧰 Add **“Auto Resolve”** for ambiguous package names.  
+- 💾 Add **Import/Export Profile** feature for teams.  
+- 🌈 Introduce a **Dark Mode** for the interface.  
+- 📦 Package into standalone **EXE** via PyInstaller.  
+- ☁️ Cloud sync for developer environment presets.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 ---
 
 ## 👨‍💻 Author
 
 **Sattyam Chavan**  
-📧 Feel free to fork, enhance, or contribute!
+📧 *Feel free to fork, enhance, or contribute!*   
 ⭐ If you like this project, don’t forget to star the repo on GitHub!
 
-“Small tools make a big difference — keep your system light and clean.” ✨
+---
+
+> “Automate the boring setup — so you can start building faster.” ⚡
