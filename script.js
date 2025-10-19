@@ -53,7 +53,6 @@ async function loadDay(day) {
     
     await loadReadme(project.readme);
     await loadOutputs(project.outputs);
-    await loadFeedbacks(day);
 }
 
 function updateProjectLink(day, githubPath) {
@@ -171,111 +170,4 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
     initializeTabs();
     loadDay(1);
-    initializeCommentForm();
 });
-
-async function loadFeedbacks(day) {
-    const feedbackList = document.getElementById('feedbackList');
-    
-    try {
-        const response = await fetch(`/.netlify/functions/feedback?day=${day}`);
-        const feedbacks = await response.json();
-        
-        if (feedbacks.length === 0) {
-            feedbackList.innerHTML = '<div class="no-feedback">No feedback yet. Be the first to share your thoughts!</div>';
-            return;
-        }
-        
-        feedbackList.innerHTML = feedbacks.map(feedback => `
-            <div class="feedback-item">
-                <div class="feedback-header">
-                    <strong>${escapeHtml(feedback.name)}</strong>
-                    <span class="feedback-date">${new Date(feedback.timestamp).toLocaleDateString()}</span>
-                </div>
-                <div class="feedback-text">${escapeHtml(feedback.comment)}</div>
-            </div>
-        `).join('');
-    } catch (error) {
-        feedbackList.innerHTML = '<div class="error-message">Failed to load feedbacks</div>';
-    }
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-async function initializeCommentForm() {
-    const commentForm = document.getElementById('commentForm');
-    
-    commentForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = commentForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        
-        const name = document.getElementById('commenterName').value.trim();
-        const comment = document.getElementById('commentText').value.trim();
-        const day = currentDay;
-        const projectName = projectsData[day]?.name || 'Project';
-        
-        if (!name || !comment) {
-            showNotification('Please fill in all fields', 'error');
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            return;
-        }
-        
-        try {
-            const response = await fetch('/.netlify/functions/feedback', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    comment,
-                    day,
-                    projectName
-                })
-            });
-            
-            const result = await response.json();
-            
-            if (response.ok) {
-                commentForm.reset();
-                await loadFeedbacks(day);
-                showNotification('Feedback submitted successfully!', 'success');
-            } else {
-                const errorMsg = result.error || 'Failed to submit feedback';
-                console.error('Server error:', result);
-                showNotification(errorMsg, 'error');
-            }
-        } catch (error) {
-            console.error('Network error:', error);
-            showNotification('Network error. Please check your connection.', 'error');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        }
-    });
-}
-
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
