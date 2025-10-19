@@ -79,12 +79,13 @@ Your editable working configuration.
 
 ```
 
-### apps.info
-``` 
+## apps.info
+
+```
+
 A catalog of popular developer apps for quick selection.
 
 ---
-
 
 ## 🧱 Built With
 
