@@ -42,7 +42,7 @@ With a single click, you can remove **temporary files**, **clear caches**, **flu
 ## 🖼️ GUI Preview
 
 <p align="center">
-  <img src="docs/output.png" alt="Windows Cleanup Assistant GUI" width="700"/>
+  <img src="docs/Day 2 - Output.png" alt="Windows Cleanup Assistant GUI" width="700"/>
 </p>
 
 ---
