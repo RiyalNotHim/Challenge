@@ -1,0 +1,10 @@
+How to run GitHub Repo Manager:
+
+1. Unzip the project.
+2. Make sure git and python (3.8+) are installed.
+3. Edit `docs/schema_example.json` or create your own JSON list.
+4. From the project root, run examples:
+   - CLI: python src/repo_manager.py docs/schema_example.json
+   - Dry run: python src/repo_manager.py docs/schema_example.json --dry-run
+   - GUI: python src/repo_manager.py docs/schema_example.json --gui
+5. For private repos with HTTPS, use --token <TOKEN> (the tool will inject token temporarily into HTTPS URLs)
