@@ -1,5 +1,4 @@
-\
-#!/usr/bin/env python3
+
 """
 Windows Cleanup Assistant
 A small tkinter GUI that runs a set of PowerShell cleanup commands.

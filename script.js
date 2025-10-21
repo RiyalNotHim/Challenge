@@ -16,6 +16,12 @@ const projectsData = {
     readme: "Day 03 - Git Repo Manager/README.md", 
     outputs: ["Day 03 - Git Repo Manager/docs/Day 3 - Output.png"],
     githubPath: "Day%2003%20-%20Git%20Repo%20Manager"
+    },
+    4: {
+    name: "Day 04 - Process Tracker CLI",
+    readme: "Day 04 - Process Tracker CLI/README.md", 
+    outputs: ["DDay 04 - Process Tracker CLI/docs/Day 4 - Output.png"],
+    githubPath: "Day%2004%20-%20Process%20Tracker%20CLI"
 }
 };
 

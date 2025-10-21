@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 GitHub Repo Manager — Single Window Layout
 Divided into: Run Tasks (left) | Summary (right) | Logs (bottom)

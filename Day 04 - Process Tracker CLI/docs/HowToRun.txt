@@ -1,0 +1,13 @@
+How to run Process Tracker CLI:
+
+1. Unzip the project.
+2. Ensure Python 3.8+ is installed.
+3. From project root run:
+   python src/process_tracker.py
+
+Examples:
+- Interactive mode: python src/process_tracker.py
+- Add: python src/process_tracker.py --add "Task title" --desc "desc" --estimate 30
+- Start task: python src/process_tracker.py --start 1
+- Stop running task: python src/process_tracker.py --stop
+- Export CSV: python src/process_tracker.py --export timesheet.csv

@@ -1,0 +1,67 @@
+{
+  "next_id": 5,
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Research Paper Draft",
+      "description": "Write introduction and related work sections",
+      "tags": ["writing", "research"],
+      "estimate_minutes": 120,
+      "created_at": "2025-10-20T09:30:00",
+      "completed": false,
+      "sessions": [
+        {
+          "start": "2025-10-21T09:00:00",
+          "end": "2025-10-21T10:30:00",
+          "minutes": 90
+        }
+      ],
+      "running": null
+    },
+    {
+      "id": 2,
+      "title": "Code Debugging",
+      "description": "Fix API integration bug in backend service",
+      "tags": ["coding", "backend"],
+      "estimate_minutes": 60,
+      "created_at": "2025-10-21T11:00:00",
+      "completed": true,
+      "sessions": [
+        {
+          "start": "2025-10-21T11:15:00",
+          "end": "2025-10-21T12:10:00",
+          "minutes": 55
+        }
+      ],
+      "running": null
+    },
+    {
+      "id": 3,
+      "title": "UI Design Update",
+      "description": "Redesign dashboard layout for better usability",
+      "tags": ["frontend", "design"],
+      "estimate_minutes": 90,
+      "created_at": "2025-10-21T15:00:00",
+      "completed": false,
+      "sessions": [],
+      "running": null
+    },
+    {
+      "id": 4,
+      "title": "Team Meeting Notes",
+      "description": "Summarize project progress and next steps",
+      "tags": ["management"],
+      "estimate_minutes": 45,
+      "created_at": "2025-10-22T08:30:00",
+      "completed": true,
+      "sessions": [
+        {
+          "start": "2025-10-22T08:30:00",
+          "end": "2025-10-22T09:00:00",
+          "minutes": 30
+        }
+      ],
+      "running": null
+    }
+  ]
+}
