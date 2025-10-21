@@ -1,13 +1,31 @@
-How to run Process Tracker CLI:
+====================================================
+HOW TO RUN — Process Tracker (GUI + CLI)
+====================================================
 
-1. Unzip the project.
-2. Ensure Python 3.8+ is installed.
-3. From project root run:
-   python src/process_tracker.py
+Prerequisites:
+- Python 3.8+ installed
+- (Optional) Create a virtual environment
 
-Examples:
-- Interactive mode: python src/process_tracker.py
-- Add: python src/process_tracker.py --add "Task title" --desc "desc" --estimate 30
-- Start task: python src/process_tracker.py --start 1
-- Stop running task: python src/process_tracker.py --stop
-- Export CSV: python src/process_tracker.py --export timesheet.csv
+1) Clone or unzip the project.
+
+2) Run the GUI:
+   cd src
+   python process_tracker_gui.py
+
+3) Run the CLI (interactive):
+   cd src
+   python process_tracker.py
+
+4) CLI one-shots (examples):
+   python process_tracker.py --add "Write README" --desc "docs" --estimate 45 --tags "docs,writing"
+   python process_tracker.py --start 1
+   python process_tracker.py --stop
+   python process_tracker.py --log 1 30
+   python process_tracker.py --report today
+   python process_tracker.py --export timesheet.csv
+
+Notes:
+- Data is saved to ../data/tasks.json (created on first run).
+- Backups: ../data/tasks_backup_<timestamp>.json
+- CSV export writes to the chosen path.
+- If tkinter is missing on Linux: sudo apt install python3-tk
