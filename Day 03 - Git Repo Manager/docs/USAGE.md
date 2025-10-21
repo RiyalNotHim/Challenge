@@ -15,9 +15,9 @@ Each entry must contain:
 Example entry:
 ```json
 {
-  "name": "example",
-  "url": "https://github.com/owner/repo.git",
-  "path": "repos/repo",
+  "name": "Swasta-Setu",
+  "url": "https://github.com/RiyalNotHim/Swasta-Setu.git",
+  "path": "C:\\Programz\\Challenge\\Day 03 - Git Repo Manage\\copys",
   "branch": "main",
   "auto_push": false
 }
