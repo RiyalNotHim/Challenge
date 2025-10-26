@@ -1,0 +1,9 @@
+How to run Clipboard Logger:
+
+1. Unzip the project directory.
+2. (Optional) Install dependencies for enhanced support:
+   pip install pyperclip pillow
+3. Run the GUI application:
+   python src/clipboard_logger.py
+4. Click 'Start Monitoring' to begin logging clipboard events.
+5. Use 'Export CSV' to save logs, or 'Open Logs Folder' to view saved images.

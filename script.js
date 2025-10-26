@@ -12,20 +12,26 @@ const projectsData = {
         githubPath: "Day%2002%20-%20Windows%20Cleanup%20Assistant"
     },
     3: {
-    name: "Day 03 - Git Repo Manager",
-    readme: "Day 03 - Git Repo Manager/README.md", 
-    outputs: ["Day 03 - Git Repo Manager/docs/Day 3 - Output.png"],
-    githubPath: "Day%2003%20-%20Git%20Repo%20Manager"
+        name: "Day 03 - Git Repo Manager",
+        readme: "Day 03 - Git Repo Manager/README.md", 
+        outputs: ["Day 03 - Git Repo Manager/docs/Day 3 - Output.png"],
+        githubPath: "Day%2003%20-%20Git%20Repo%20Manager"
     },
     4: {
-    name: "Day 04 - Process Tracker CLI",
-    readme: "Day 04 - Process Tracker CLI/README.md", 
-    outputs: ["Day 04 - Process Tracker CLI/docs/Day 4 - Output.png"],
-    githubPath: "Day%2004%20-%20Process%20Tracker%20CLI"
-}
+        name: "Day 04 - Process Tracker CLI",
+        readme: "Day 04 - Process Tracker CLI/README.md", 
+        outputs: ["Day 04 - Process Tracker CLI/docs/Day 4 - Output.png"],
+        githubPath: "Day%2004%20-%20Process%20Tracker%20CLI"
+    },
+    5: {
+        name: "Day 05 - Clipboard Logger",
+        readme: "Day 05 - Clipboard Logger/README.md", 
+        outputs: ["Day 05 - Clipboard Logger/docs/Day 5 - Output.png"],
+        githubPath: "Day%2005%20-%20Clipboard%20Logger" 
+    }
 };
 
-let currentDay = 3;
+let currentDay = 5;
 let currentSlide = 0;
 let totalSlides = 0;
 
