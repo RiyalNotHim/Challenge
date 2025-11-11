@@ -41,8 +41,19 @@ This application runs a local web server that captures all requests.
 
 ## 🗂️ Folder Structure
 
-URL_Shortener/ ├── docs/ │ ├── HowToRun.txt │ └── USAGE.md ├── src/ │ ├── app.py │ ├── database.py │ └── templates/ │ └── index.html ├── .gitignore ├── https://www.google.com/search?q=LICENSE ├── README.md └── requirements.txt
-
+URL Shortener/
+├── docs/
+│   ├── HowToRun.txt
+│   └── USAGE.md
+├── src/
+│   ├── app.py          # The main Flask web app
+│   ├── database.py     # Database setup & functions
+│   └── templates/
+│       └── index.html  # The web UI
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
 
 ---
 

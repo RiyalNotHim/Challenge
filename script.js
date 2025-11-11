@@ -28,6 +28,36 @@ const projectsData = {
         readme: "Day 05 - Clipboard Logger/README.md", 
         outputs: ["Day 05 - Clipboard Logger/docs/Day 5 - Output.png"],
         githubPath: "Day%2005%20-%20Clipboard%20Logger" 
+    },
+    6: {
+        name: "Day 06 - Task Automator",
+        readme: "Day 06 - Task Automator/README.md", 
+        outputs: ["Day 06 - Task Automator/docs/Day 6 - Output.png"],
+        githubPath: "Day%2006%20-%20Task%20Automator" 
+    },
+    7: {
+        name: "Day 07 - File Organizer Bot",
+        readme: "Day 07 - File Organizer Bot/README.md", 
+        outputs: ["Day 07 - File Organizer Bot/docs/Day 7 - Output.png"],
+        githubPath: "Day%2007%20-%20File%20Organizer%20Bot" 
+    },
+    8: {
+        name: "Day 08 - PDF Combiner & Compressor",
+        readme: "Day 08 - PDF Combiner & Compressor/README.md", 
+        outputs: ["Day 08 - PDF Combiner & Compressor/docs/Day 8 - Output.png"],
+        githubPath: "Day%2008%20-%20PDF%20Combiner%20%26%20Compressor"
+    },
+    12: {
+        name: "Day 12 - AI Resume Tailor",
+        readme: "Day 12 - AI Resume Tailor/README.md", 
+        outputs: ["Day 12 - AI Resume Tailor/docs/Day 12 - Output.png"],
+        githubPath: "Day%2012%20-%20AI%20Resume%20Tailor" 
+    },
+    16: {
+        name: "Day 16 - URL Shortener",
+        readme: "Day 16 - URL Shortener/README.md", 
+        outputs: ["Day 16 - URL Shortener/docs/Day 16 - Output.png"],
+        githubPath: "Day%2016%20-%20URL%20Shortener" 
     }
 };
 
