@@ -1,0 +1,22 @@
+HOW TO RUN
+
+1. Open a terminal or command prompt.
+2. Navigate to the root folder of this project (e.g., 'AI_Resume_Tailor/').
+3. **Install the required dependencies:**
+
+   pip install -r requirements.txt
+
+4. Run the application with the following command:
+
+   python src/app.py
+
+5. The script will:
+   - Open the AI Resume Tailor GUI.
+   - You can now paste your text and analyze.
+
+====================================================
+NOTES
+
+- Requires Python 3 and the 'scikit-learn' library.
+- The analysis runs in a background thread
+  so the GUI does not freeze.

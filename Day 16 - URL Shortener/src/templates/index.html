@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        :root {
+            --bg-color: #2b2b2b;
+            --fg-color: #e0e0e0;
+            --entry-bg: #3c3c3c;
+            --button-bg: #007acc;
+            --button-fg: #ffffff;
+            --header-bg: #333333;
+            --border-color: #555;
+            --success: #2ecc71;
+            --error: #e74c3c;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--fg-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--header-bg);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--fg-color);
+            margin-top: 0;
+        }
+        
+        /* Flash Messages */
+        .flash {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .flash.success { background-color: var(--success); color: #fff; }
+        .flash.error { background-color: var(--error); color: #fff; }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        form input[type="url"], form input[type="text"] {
+            flex: 1 1 300px;
+            padding: 10px;
+            background-color: var(--entry-bg);
+            color: var(--fg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        form input::placeholder { color: #888; }
+        form button {
+            padding: 10px 20px;
+            background-color: var(--button-bg);
+            color: var(--button-fg);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        form button:hover { background-color: #005f9e; }
+        .form-group {
+            flex: 1 1 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Table */
+        h2 {
+            border-bottom: 2px solid var(--button-bg);
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--bg-color);
+            font-weight: bold;
+        }
+        td { word-break: break-all; }
+        td a {
+            color: var(--button-bg);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        td a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔗 URL Shortener</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('shorten') }}" method="POST">
+            <div class="form-group">
+                <input type="url" name="original_url" placeholder="Paste your long URL here..." required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="custom_code" placeholder="Optional: Custom short code (e.g., 'my-link')">
+                <button type="submit">Shorten</button>
+            </div>
+        </form>
+
+        <h2>Your Links</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short Link</th>
+                    <th>Original URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if not links %}
+                <tr>
+                    <td colspan="3" style="text-align: center;">No links yet!</td>
+                </tr>
+                {% endif %}
+                {% for link in links %}
+                <tr>
+                    <td>
+                        <a href="{{ base_url }}{{ link.short_code }}" target="_blank">
+                            {{ base_url.replace('http://', '').replace('https://', '') }}{{ link.short_code }}
+                        </a>
+                    </td>
+                    <td>{{ link.original_url[:100] }}{% if link.original_url|length > 100 %}...{% endif %}</td>
+                    <td>{{ link.clicks }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

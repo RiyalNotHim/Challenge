@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Open Daily Log",
+    "command": "notepad.exe C:\\Users\\Sattyam\\Documents\\daily_log.txt",
+    "trigger": "Daily",
+    "time": "09:00"
+  },
+  {
+    "name": "Run Weekly Backup Script",
+    "command": "python C:\\Scripts\\run_backup.py",
+    "trigger": "Weekly",
+    "time": "18:00",
+    "day": "Friday"
+  },
+  {
+    "name": "Sync Project Repo",
+    "command": "cd C:\\Projects\\my_project && git pull",
+    "trigger": "Interval",
+    "interval": 60
+  },
+  {
+    "name": "Open Work Dashboard",
+    "command": "start chrome \"https://your-dashboard.com\"",
+    "trigger": "Daily",
+    "time": "09:01"
+  }
+]

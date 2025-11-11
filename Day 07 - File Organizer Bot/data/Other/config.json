@@ -1,0 +1,58 @@
+{
+  "extension_mappings": {
+    "Images": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".svg",
+      ".webp"
+    ],
+    "Documents": [
+      ".pdf",
+      ".docx",
+      ".doc",
+      ".txt",
+      ".pptx",
+      ".xlsx",
+      ".odt",
+      ".rtf"
+    ],
+    "Videos": [
+      ".mp4",
+      ".mov",
+      ".avi",
+      ".mkv",
+      ".wmv"
+    ],
+    "Music": [
+      ".mp3",
+      ".wav",
+      ".aac",
+      ".flac"
+    ],
+    "Archives": [
+      ".zip",
+      ".rar",
+      ".7z",
+      ".tar",
+      ".gz"
+    ],
+    "Scripts": [
+      ".py",
+      ".js",
+      ".html",
+      ".css",
+      ".sh",
+      ".bat",
+      ".java"
+    ],
+    "Executables": [
+      ".exe",
+      ".msi",
+      ".dmg",
+      ".app"
+    ]
+  }
+}

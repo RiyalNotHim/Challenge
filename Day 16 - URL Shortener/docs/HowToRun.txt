@@ -1,0 +1,26 @@
+HOW TO RUN
+
+1. Open a terminal or command prompt.
+2. Navigate to the root folder of this project (e.g., 'URL_Shortener/').
+3. **Install the required dependencies:**
+
+   pip install -r requirements.txt
+
+4. **Initialize the database (ONLY ONCE):**
+   Run the database script to create the 'urls.db' file.
+
+   python src/database.py
+
+5. **Run the web application:**
+
+   python src/app.py
+
+6. Open your web browser and go to:
+   http://127.0.0.1:5000
+
+====================================================
+NOTES
+
+- Requires Python 3 and the 'Flask' library.
+- The service runs as long as the terminal is open.
+- All links are stored in 'src/urls.db'.

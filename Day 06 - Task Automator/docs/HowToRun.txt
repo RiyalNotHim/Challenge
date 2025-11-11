@@ -1,0 +1,21 @@
+HOW TO RUN
+
+1. Open a terminal or command prompt.
+2. Navigate to the root folder of this project (e.g., 'TaskAutomator/').
+3. Run the following command: [cite: 2]
+
+   python src/app.py
+
+4. The script will:
+   - Read the 'data/tasks.json' file.
+   - Open the Task Automator GUI.
+   - Start the background scheduler thread.
+
+5. Once running, you can add, remove, and manage tasks.
+
+====================================================
+NOTES
+
+- Requires Python 3.
+- All dependencies (Tkinter, JSON, etc.) are in the standard library.
+- The scheduler only runs while the GUI application is open.
